@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CiberH2O — Càtedra de Digitalització i Ciberseguretat Hídrica · UdG</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="description" content="Càtedra de Digitalització i Ciberseguretat Hídrica de la Universitat de Girona. Formació, recerca i recursos de ciberseguretat per al sector de l'aigua.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CiberH2O — Universitat de Girona">
+<meta property="og:title" content="CiberH2O · Ciberseguretat per al cicle de l'aigua">
+<meta property="og:description" content="Formació oberta, informes i eines de ciberseguretat per als operadors del sector de l'aigua. Càtedra de la Universitat de Girona.">
+<meta property="og:url" content="https://cyberh2o.es/">
+<meta property="og:image" content="https://cyberh2o.es/social.png"><!-- TODO: crear social.png (1200x630) amb el logo nou -->
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estil.css">
+</head>
+<body>
+
+<nav>
+  <div class="contenidor nav-inner">
+    <a href="#inici" class="marca"><img src="logo.png" alt="" class="logo-img"><img src="logo-text.png" alt="Càtedra de Digitalització i Ciberseguretat Hídrica" class="logo-text-img"></a>
+    <button id="menu-btn" aria-label="Menú" aria-expanded="false">☰</button>
+    <div class="nav-links" id="nav-links">
+      <a href="guia.html" data-i18n="nav.guia">La Guia</a>
+      <a href="#formacio" data-i18n="nav.formacio">Formació</a>
+      <a href="#informes" data-i18n="nav.informes">Informes</a>
+      <a href="#sobre" data-i18n="nav.sobre">La càtedra</a>
+      <a href="#activitats" data-i18n="nav.activitats">Activitats</a>
+      <a href="#xarxa" data-i18n="nav.xarxa">Xarxa</a>
+      <a href="#contacte" data-i18n="nav.contacte">Contacte</a>
+    </div>
+    <button id="cerca-btn" class="cerca-btn" aria-label="Cerca" title="Cerca (Ctrl+K)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    <div class="langs" role="group" aria-label="Idioma">
+      <button data-lang="ca" class="actiu">CA</button>
+      <button data-lang="es">ES</button>
+      <button data-lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header id="inici">
+  <svg class="patró" aria-hidden="true">
+    <defs>
+      <pattern id="trama" width="120" height="120" patternUnits="userSpaceOnUse">
+        <path d="M0 60 C 15 45, 30 75, 45 60 L 70 60 L 70 35 L 100 35" fill="none" stroke="#0057A3" stroke-width="1.2" opacity=".07"/>
+        <circle cx="70" cy="35" r="2.2" fill="#0057A3" opacity=".10"/>
+        <circle cx="100" cy="95" r="2.2" fill="#00B4CB" opacity=".10"/>
+        <path d="M60 120 C 75 105, 90 135, 105 120" fill="none" stroke="#00B4CB" stroke-width="1.2" opacity=".06"/>
+      </pattern>
+      <linearGradient id="esvaeix" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#trama)"/>
+    <rect width="100%" height="35%" y="65%" fill="url(#esvaeix)" transform="scale(1,-1) translate(0,-100%)" opacity=".6"/>
+  </svg>
+  <div class="contenidor">
+    <p class="eyebrow" data-i18n="hero.eyebrow">Universitat de Girona · LEQUIA</p>
+    <h1><span data-i18n="hero.t1">Ciberseguretat per al</span> <span class="aqua" data-i18n="hero.t2">cicle de l'aigua</span></h1>
+    <svg class="flux" viewBox="0 0 760 56" aria-hidden="true" preserveAspectRatio="xMinYMid meet">
+      <path class="traça" d="M4 28 C 40 8, 76 48, 112 28 S 184 8, 220 28 S 292 48, 328 28 L 380 28 L 380 14 L 460 14 L 460 42 L 560 42 L 560 28 L 700 28"/>
+      <circle cx="380" cy="14" r="4"/><circle cx="460" cy="42" r="4"/><circle cx="700" cy="28" r="4"/>
+    </svg>
+    <p class="hero-sub" data-i18n="hero.sub">La Càtedra de Digitalització i Ciberseguretat Hídrica treballa perquè els operadors del cicle de l'aigua —especialment els petits i mitjans— puguin afrontar la digitalització i les obligacions de la directiva NIS2 amb coneixement, formació i eines pràctiques.</p>
+    <div class="cta-fila">
+      <div class="cta-item">
+        <a class="boto ple" href="guia.html" data-i18n="hero.cta1">Comença per la Guia</a>
+        <span class="cta-nota" data-i18n="hero.cap1">Per aprendre: la referència completa del sector, oberta a tothom</span>
+      </div>
+      <div class="cta-item">
+        <a class="boto buit" href="ciberdiagnostic.html" data-i18n="hero.cta2">Fes el ciberdiagnòstic</a>
+        <span class="cta-nota" data-i18n="hero.cap2">Per posar-te a prova: avalua la teva instal·lació en 15 minuts</span>
+      </div>
+    </div>
+    <div class="xifres" id="xifres">
+      <div class="xifra"><b data-final="33">0</b><span data-i18n="x.activitats">activitats realitzades</span></div>
+      <div class="xifra"><b data-final="473">0</b><span data-i18n="x.alumnes">alumnes formats</span></div>
+      <div class="xifra"><b data-final="831">0</b><span data-i18n="x.assistents">assistents a jornades</span></div>
+      <div class="xifra"><b data-final="16">0</b><span data-i18n="x.entitats">entitats a la xarxa</span></div>
+    </div>
+  </div>
+</header>
+
+<svg class="ona-divisor" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 30 C 240 8, 480 52, 720 30 S 1200 8, 1440 30 L 1440 48 L 0 48 Z" fill="#FFFFFF"/>
+</svg>
+
+<section id="guia">
+  <div class="contenidor">
+    <div class="banda-guia">
+      <div>
+        <p class="eyebrow" style="color:#CFF3F7" data-i18n="guia.eyebrow">Coneixement obert</p>
+        <h3 data-i18n="guia.titol">La Guia de ciberseguretat hídrica</h3>
+        <p data-i18n="guia.p">Tot el que cal saber per entendre i protegir les infraestructures de l'aigua, en una guia oberta: de com funciona una planta a què exigir als contractes, amb punts de control per posar-se a prova i una caixa d'eines llesta per fer servir.</p>
+        <div class="guia-chips">
+          <span data-i18n="guia.c1">8 blocs temàtics</span>
+          <span data-i18n="guia.c2">44 apartats</span>
+          <span data-i18n="guia.c3">Punts de control autocorregits</span>
+          <span data-i18n="guia.c4">Plantilles i llistes de comprovació</span>
+        </div>
+      </div>
+      <a class="boto" href="guia.html" data-i18n="guia.cta">Obre la Guia</a>
+    </div>
+
+    <div class="banda-diag">
+      <div>
+        <p class="eyebrow" data-i18n="diag.eyebrow">Posa’t a prova</p>
+        <h3 data-i18n="diag.titol">El Ciberdiagnòstic</h3>
+        <p data-i18n="diag.p">Una eina d’autoavaluació gratuïta basada en el marc NIST: respon sobre els controls de la teva instal·lació i obtén un radar de maduresa i un pla d’acció prioritzat. Funciona íntegrament al teu navegador: cap dada surt del teu dispositiu.</p>
+        <div class="guia-chips">
+          <span data-i18n="diag.c1">Mode exprés: 22 controls, ~15 min</span>
+          <span data-i18n="diag.c2">Mode complet: 90 controls, 6 àrees</span>
+          <span data-i18n="diag.c3">Radar i pla d’acció per imprimir</span>
+        </div>
+      </div>
+      <a class="boto" href="ciberdiagnostic.html" data-i18n="diag.cta">Comença el diagnòstic</a>
+    </div>
+  </div>
+</section>
+
+<section id="formacio">
+  <div class="contenidor">
+    <p class="eyebrow" data-i18n="form.eyebrow">CiberCampus</p>
+    <h2 data-i18n="form.titol">Formació oberta i gratuïta</h2>
+    <p class="intro" data-i18n="form.intro">Cursos i seminaris creats per la Càtedra, disponibles en obert. Tria un curs per veure'n els mòduls, els vídeos i el material descarregable.</p>
+    <div class="cursos-grid" id="cursos-video"></div>
+  </div>
+</section>
+
+<section id="informes">
+  <div class="contenidor">
+    <p class="eyebrow" data-i18n="inf.eyebrow">Coneixement</p>
+    <h2 data-i18n="inf.titol">Informes i eines</h2>
+    <p class="intro" data-i18n="inf.intro">Estudis propis sobre l'estat de la ciberseguretat al sector de l'aigua, disponibles en descàrrega directa.</p>
+    <div class="informes-grid" id="informes-grid"></div>
+    <div class="eina-destacada">
+      <div>
+        <p class="eyebrow" style="color:#CFF3F7">Eina · Projecte SWIFT</p>
+        <h3 data-i18n="eina.titol">Ciberdiagnòstic per a operadors de l'aigua</h3>
+        <p data-i18n="eina.p">Autoavaluació de 90 controls per conèixer la maduresa en ciberseguretat de la teva organització i orientar el compliment de la NIS2. Gratuïta, anònima i al navegador.</p>
+      </div>
+      <a class="boto" href="ciberdiagnostic.html" data-i18n="eina.cta">Comença l'autoavaluació</a>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="contenidor">
+    <p class="eyebrow" data-i18n="sobre.eyebrow">La càtedra</p>
+    <h2 data-i18n="sobre.titol">Recerca i transferència des de Girona per a tot el sector</h2>
+    <div class="sobre-grid">
+      <div>
+        <p data-i18n="sobre.p1">El sector de l'aigua és una infraestructura crítica: fragmentat, amb forta presència de tecnologia operacional (OT) i, sovint, amb pocs recursos dedicats a la ciberseguretat. La Càtedra, vinculada al grup de recerca LEQUIA de la Universitat de Girona, hi aporta formació especialitzada, recerca aplicada i eines d'autoavaluació.</p>
+        <p data-i18n="sobre.p2">Nascuda amb l'impuls d'INCIBE, la Càtedra inicia una nova etapa amb el suport del Catalan Water Partnership (CWP), amb un focus clar: acompanyar els operadors petits i mitjans en el compliment de la directiva NIS2 i en la millora de la seva maduresa en ciberseguretat.</p>
+      </div>
+          </div>
+  </div>
+</section>
+
+<section id="activitats">
+  <div class="contenidor">
+    <p class="eyebrow" data-i18n="act.eyebrow">Arxiu</p>
+    <h2 data-i18n="act.titol">Activitats de la càtedra</h2>
+    <p class="intro" data-i18n="act.intro">Jornades, formacions, recerca i divulgació, any per any.</p>
+    <div class="filtres" id="filtres" role="group" aria-label="Filtres"></div>
+    <div id="activitats-llista"></div>
+  </div>
+</section>
+
+<section id="xarxa">
+  <div class="contenidor">
+    <p class="eyebrow" data-i18n="xar.eyebrow">Comunitat</p>
+    <h2 data-i18n="xar.titol">Xarxa i col·laboradors</h2>
+    <p class="intro" data-i18n="xar.intro">La Càtedra impulsa la Xarxa de Ciberseguretat en la Gestió de l'Aigua, que connecta operadors, empreses tecnològiques, administració i acadèmia.</p>
+    <div class="xarxa-grid">
+      <div class="entitat"><b>Universitat de Girona · LEQUIA</b><span data-i18n="xar.udg">Institució titular</span></div>
+      <div class="entitat"><b>Catalan Water Partnership</b><span data-i18n="xar.cwp">Entitat impulsora</span></div>
+      <div class="entitat"><b>INCIBE</b><span data-i18n="xar.incibe">Impulsor de la primera etapa (2024–2026)</span></div>
+      <!-- TODO: afegir membres de la Xarxa Ciberaigua quan es confirmin -->
+    </div>
+  </div>
+</section>
+
+<section id="contacte">
+  <div class="contenidor">
+    <p class="eyebrow" data-i18n="con.eyebrow">Parlem</p>
+    <h2 data-i18n="con.titol">Contacte</h2>
+    <div class="targeta-contacte">
+      <div class="dades">
+        <p><b data-i18n="con.email">Correu</b>: <a href="mailto:cyberh2o@udg.edu">cyberh2o@udg.edu</a></p>
+        <p><b data-i18n="con.on">On som</b>: LEQUIA · Institut de Medi Ambient, Universitat de Girona</p>
+      </div>
+      <div class="contacte-botons" style="margin-left:auto"><a class="boto ple" href="mailto:cyberh2o@udg.edu" data-i18n="con.cta">Escriu-nos</a><a class="boto-linkedin" href="https://www.linkedin.com/in/c%C3%A0tedra-digitalitzaci%C3%B3-i-ciberseguretat-de-la-udg-729004420" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg><span data-i18n="con.li">Segueix-nos a LinkedIn</span></a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="contenidor">
+    <span>© 2026 Càtedra de Digitalització i Ciberseguretat Hídrica · Universitat de Girona</span>
+    <span><a href="guia.html" data-i18n="peu.guia">La Guia</a> · <a href="ciberdiagnostic.html" data-i18n="peu.diag">Ciberdiagnòstic</a> · <a href="legal.html" data-i18n="peu.legal">Avís legal i privacitat</a> · <a href="https://www.linkedin.com/in/c%C3%A0tedra-digitalitzaci%C3%B3-i-ciberseguretat-de-la-udg-729004420" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script src="dades.js"></script>
+<script>
+/* =========================================================
+   DADES
+   Quan tinguem els PDFs al repositori, només cal canviar
+   les URL de sota per rutes relatives (p. ex. 'docs/cursos/...').
+   ========================================================= */
+const INFORMES = [
+  {any:'2026', t:'Guía de aplicación de metodología de ciberdiagnóstico para la detección de ciberincidentes en el sector del agua', url:UP+'2026/01/Guia-de-aplicacion-de-metodologia-de-ciberdiagnostico-para-la-deteccion-de-ciberincidentes-en-el-Sector-del-Agua.pdf'},
+  {any:'2025', t:'Estado del arte de la digitalización de las infraestructuras del agua en España', url:UP+'2025/07/250410-Estado-del-Arte-de-la-Digitalizacion-de-las-Infraestructuras-del-Agua-en-Espana.pdf'},
+  {any:'2025', t:'Tendencias de ciberseguridad en el sector del agua', url:UP+'2025/07/Informe-Tendencias-de-Ciberseguridad-en-el-Sector-del-Agua.pdf'},
+  {any:'2025', t:'NIS2: características esenciales para el sector del agua', url:UP+'2025/07/Informe-NIS2-Caracteristicas-esenciales-SECTOR-DEL-AGUA.pdf'},
+  {any:'2025', t:'La ciberseguridad en el sector del agua: la opinión de los profesionales', url:UP+'2025/02/250203-Informe-opinion-profesionales.pdf'}
+];
+
+const ACTIVITATS = [
+  {d:'2026-04-07', c:'formacio', t:'Seminari web de ciberseguretat al sector de l\u2019aigua', s:'36 professionals del sector hídric'},
+  {d:'2026-03-31', c:'formacio', t:'Cicle de tres webinars de ciberseguretat per al sector de l\u2019aigua', s:''},
+  {d:'2026-03-30', c:'formacio', t:'Cyberrange de ciberseguretat hídrica', s:'62 participants en l\u2019exercici pràctic'},
+  {d:'2026-03-26', c:'recerca', t:'Ponència al RECSI 2026 sobre ciberseguretat en infraestructures de l\u2019aigua', s:'Sandra Bonillo'},
+  {d:'2026-03-25', c:'formacio', t:'Seminari web: eines defensives', s:''},
+  {d:'2026-01-29', c:'divulgacio', t:'Lliurament de premis del Data Challenge 2025', s:''},
+  {d:'2026-01-12', c:'recerca', t:'Eina i guia per a la detecció de ciberincidents al sector de l\u2019aigua', s:'Publicació de la metodologia de ciberdiagnòstic'},
+  {d:'2025-12-18', c:'jornades', t:'Protegint l\u2019aigua del demà: taller estratègic de ciberseguretat hídrica', s:''},
+  {d:'2025-12-15', c:'jornades', t:'Presentació de casos pràctics en el marc de l\u2019ES-ISAC Aguas', s:''},
+  {d:'2025-12-10', c:'jornades', t:'Jornada de ciberseguretat en l\u2019aigua potable', s:''},
+  {d:'2025-11-25', c:'divulgacio', t:'Resolució dels I Premis de la Càtedra', s:'TFG, TFM i tesis en ciberseguretat hídrica'},
+  {d:'2025-11-24', c:'jornades', t:'Jornada sobre ciberseguretat en la gestió dels sistemes d\u2019aigua urbans i industrials', s:''},
+  {d:'2025-11-21', c:'jornades', t:'Jornada de llançament de la Xarxa de Ciberseguretat en la Gestió de l\u2019Aigua', s:''},
+  {d:'2025-11-20', c:'formacio', t:'Formació en ciberseguretat hídrica: claus per protegir el cicle de l\u2019aigua', s:''},
+  {d:'2025-10-28', c:'formacio', t:'CyberChallenge 2025: el repte de ciberseguretat hídrica', s:''},
+  {d:'2025-10-24', c:'jornades', t:'La ciberseguretat hídrica, eix central de la 5a Jornada Tècnica de l\u2019Aigua', s:''},
+  {d:'2025-10-17', c:'divulgacio', t:'Participació al 19è ENISE', s:''}
+];
+
+/* =========================================================
+   TRADUCCIONS D'INTERFÍCIE
+   ========================================================= */
+const T = {
+ ca:{'hero.cap1':'Per aprendre: la refer\u00e8ncia completa del sector, oberta a tothom','hero.cap2':'Per posar-te a prova: avalua la teva instal\u00b7laci\u00f3 en 15 minuts','diag.eyebrow':'Posa\u2019t a prova','diag.titol':'El Ciberdiagn\u00f2stic','diag.p':'Una eina d\u2019autoavaluaci\u00f3 gratu\u00efta basada en el marc NIST: respon sobre els controls de la teva instal\u00b7laci\u00f3 i obt\u00e9n un radar de maduresa i un pla d\u2019acci\u00f3 prioritzat. Funciona \u00edntegrament al teu navegador: cap dada surt del teu dispositiu.','diag.c1':'Mode expr\u00e9s: 22 controls, ~15 min','diag.c2':'Mode complet: 90 controls, 6 \u00e0rees','diag.c3':'Radar i pla d\u2019acci\u00f3 per imprimir','diag.cta':'Comen\u00e7a el diagn\u00f2stic','act.li':'Veure a LinkedIn','con.li':'Segueix-nos a LinkedIn','act.mes':'Veure\u2019n m\u00e9s',
+  'form.videos':'Formacions en vídeo','form.cursos':'Cursos interactius','nav.sobre':'La càtedra','nav.formacio':'Formació','nav.guia':'La Guia','peu.legal':'Avís legal i privacitat','peu.diag':'Ciberdiagnòstic','peu.guia':'La Guia','nav.informes':'Informes','nav.activitats':'Activitats','nav.xarxa':'Xarxa','nav.contacte':'Contacte',
+  'hero.eyebrow':'Universitat de Girona · LEQUIA','hero.t1':'Ciberseguretat per al','hero.t2':'cicle de l\u2019aigua',
+  'hero.sub':'La Càtedra de Digitalització i Ciberseguretat Hídrica treballa perquè els operadors del cicle de l\u2019aigua —especialment els petits i mitjans— puguin afrontar la digitalització i les obligacions de la directiva NIS2 amb coneixement, formació i eines pràctiques.',
+  'hero.cta1':'Comença per la Guia','hero.cta2':'Fes el ciberdiagnòstic','guia.eyebrow':'Coneixement obert','guia.titol':'La Guia de ciberseguretat hídrica','guia.p':'Tot el que cal saber per entendre i protegir les infraestructures de l\u2019aigua, en una guia oberta: de com funciona una planta a què exigir als contractes, amb punts de control per posar-se a prova i una caixa d\u2019eines llesta per fer servir.','guia.c1':'8 blocs temàtics','guia.c2':'44 apartats','guia.c3':'Punts de control autocorregits','guia.c4':'Plantilles i llistes de comprovació','guia.cta':'Obre la Guia',
+  'x.activitats':'activitats realitzades','x.alumnes':'alumnes formats','x.assistents':'assistents a jornades','x.entitats':'entitats a la xarxa',
+  'sobre.eyebrow':'La càtedra','sobre.titol':'Recerca i transferència des de Girona per a tot el sector',
+  'sobre.p1':'El sector de l\u2019aigua és una infraestructura crítica: fragmentat, amb forta presència de tecnologia operacional (OT) i, sovint, amb pocs recursos dedicats a la ciberseguretat. La Càtedra, vinculada al grup de recerca LEQUIA de la Universitat de Girona, hi aporta formació especialitzada, recerca aplicada i eines d\u2019autoavaluació.',
+  'sobre.p2':'Nascuda amb l\u2019impuls d\u2019INCIBE, la Càtedra inicia una nova etapa amb el suport del Catalan Water Partnership (CWP), amb un focus clar: acompanyar els operadors petits i mitjans en el compliment de la directiva NIS2 i en la millora de la seva maduresa en ciberseguretat.',
+  
+  'form.eyebrow':'CiberCampus','form.titol':'Formació oberta i gratuïta',
+  'form.intro':'Cursos i seminaris creats per la Càtedra, disponibles en obert. Tria un curs per veure\u2019n els mòduls, els vídeos i el material descarregable.',
+  'inf.eyebrow':'Coneixement','inf.titol':'Informes i eines',
+  'inf.intro':'Estudis propis sobre l\u2019estat de la ciberseguretat al sector de l\u2019aigua, disponibles en descàrrega directa.',
+  'eina.titol':'Ciberdiagnòstic per a operadors de l\u2019aigua',
+  'eina.p':'Autoavaluació de 90 controls per conèixer la maduresa en ciberseguretat de la teva organització i orientar el compliment de la NIS2. Gratuïta, anònima i al navegador.',
+  'eina.cta':'Comença l\u2019autoavaluació',
+  'act.eyebrow':'Arxiu','act.titol':'Activitats de la càtedra','act.intro':'Jornades, formacions, recerca i divulgació, any per any.',
+  'xar.eyebrow':'Comunitat','xar.titol':'Xarxa i col·laboradors',
+  'xar.intro':'La Càtedra impulsa la Xarxa de Ciberseguretat en la Gestió de l\u2019Aigua, que connecta operadors, empreses tecnològiques, administració i acadèmia.',
+  'xar.udg':'Institució titular','xar.cwp':'Entitat impulsora','xar.incibe':'Impulsor de la primera etapa (2024–2026)',
+  'con.eyebrow':'Parlem','con.titol':'Contacte','con.email':'Correu','con.on':'On som','con.cta':'Escriu-nos',
+  'ui.original':'Material original (PDF)','ui.moduls':'mòduls','ui.videos':'Vídeo','ui.pdf':'PDF','ui.veure':'Veure el curs','ui.tancar':'Tancar','ui.descarrega':'Descarrega el PDF','ui.tots':'Totes',
+  'cat.formacio':'Formació','cat.jornades':'Jornades','cat.recerca':'Recerca','cat.divulgacio':'Divulgació'
+ },
+ es:{'hero.cap1':'Para aprender: la referencia completa del sector, abierta a todos','hero.cap2':'Para ponerte a prueba: eval\u00faa tu instalaci\u00f3n en 15 minutos','diag.eyebrow':'Ponte a prueba','diag.titol':'El Ciberdiagn\u00f3stico','diag.p':'Una herramienta de autoevaluaci\u00f3n gratuita basada en el marco NIST: responde sobre los controles de tu instalaci\u00f3n y obt\u00e9n un radar de madurez y un plan de acci\u00f3n priorizado. Funciona \u00edntegramente en tu navegador: ning\u00fan dato sale de tu dispositivo.','diag.c1':'Modo expr\u00e9s: 22 controles, ~15 min','diag.c2':'Modo completo: 90 controles, 6 \u00e1reas','diag.c3':'Radar y plan de acci\u00f3n imprimible','diag.cta':'Empieza el diagn\u00f3stico','act.li':'Ver en LinkedIn','con.li':'S\u00edguenos en LinkedIn','act.mes':'Ver m\u00e1s',
+  'form.videos':'Formaciones en vídeo','form.cursos':'Cursos interactivos','nav.sobre':'La cátedra','nav.formacio':'Formación','nav.guia':'La Guía','peu.legal':'Aviso legal y privacidad','peu.diag':'Ciberdiagnóstico','peu.guia':'La Guía','nav.informes':'Informes','nav.activitats':'Actividades','nav.xarxa':'Red','nav.contacte':'Contacto',
+  'hero.eyebrow':'Universitat de Girona · LEQUIA','hero.t1':'Ciberseguridad para el','hero.t2':'ciclo del agua',
+  'hero.sub':'La Cátedra de Digitalización y Ciberseguridad Hídrica trabaja para que los operadores del ciclo del agua —especialmente los pequeños y medianos— puedan afrontar la digitalización y las obligaciones de la directiva NIS2 con conocimiento, formación y herramientas prácticas.',
+  'hero.cta1':'Empieza por la Guía','hero.cta2':'Haz el ciberdiagnóstico','guia.eyebrow':'Conocimiento abierto','guia.titol':'La Guía de ciberseguridad hídrica','guia.p':'Todo lo necesario para entender y proteger las infraestructuras del agua, en una guía abierta: de cómo funciona una planta a qué exigir en los contratos, con puntos de control para ponerse a prueba y una caja de herramientas lista para usar.','guia.c1':'8 bloques temáticos','guia.c2':'44 apartados','guia.c3':'Puntos de control autocorregidos','guia.c4':'Plantillas y listas de comprobación','guia.cta':'Abre la Guía',
+  'x.activitats':'actividades realizadas','x.alumnes':'alumnos formados','x.assistents':'asistentes a jornadas','x.entitats':'entidades en la red',
+  'sobre.eyebrow':'La cátedra','sobre.titol':'Investigación y transferencia desde Girona para todo el sector',
+  'sobre.p1':'El sector del agua es una infraestructura crítica: fragmentado, con fuerte presencia de tecnología operacional (OT) y, a menudo, con pocos recursos dedicados a la ciberseguridad. La Cátedra, vinculada al grupo de investigación LEQUIA de la Universitat de Girona, aporta formación especializada, investigación aplicada y herramientas de autoevaluación.',
+  'sobre.p2':'Nacida con el impulso de INCIBE, la Cátedra inicia una nueva etapa con el apoyo del Catalan Water Partnership (CWP), con un foco claro: acompañar a los operadores pequeños y medianos en el cumplimiento de la directiva NIS2 y en la mejora de su madurez en ciberseguridad.',
+  
+  'form.eyebrow':'CiberCampus','form.titol':'Formación abierta y gratuita',
+  'form.intro':'Cursos y seminarios creados por la Cátedra, disponibles en abierto. Elige un curso para ver sus módulos, los vídeos y el material descargable.',
+  'inf.eyebrow':'Conocimiento','inf.titol':'Informes y herramientas',
+  'inf.intro':'Estudios propios sobre el estado de la ciberseguridad en el sector del agua, disponibles en descarga directa.',
+  'eina.titol':'Ciberdiagnóstico para operadores del agua',
+  'eina.p':'Autoevaluación de 90 controles para conocer la madurez en ciberseguridad de tu organización y orientar el cumplimiento de la NIS2. Gratuita, anónima y en el navegador.',
+  'eina.cta':'Empieza la autoevaluación',
+  'act.eyebrow':'Archivo','act.titol':'Actividades de la cátedra','act.intro':'Jornadas, formaciones, investigación y divulgación, año a año.',
+  'xar.eyebrow':'Comunidad','xar.titol':'Red y colaboradores',
+  'xar.intro':'La Cátedra impulsa la Red de Ciberseguridad en la Gestión del Agua, que conecta operadores, empresas tecnológicas, administración y academia.',
+  'xar.udg':'Institución titular','xar.cwp':'Entidad impulsora','xar.incibe':'Impulsor de la primera etapa (2024–2026)',
+  'con.eyebrow':'Hablemos','con.titol':'Contacto','con.email':'Correo','con.on':'Dónde estamos','con.cta':'Escríbenos',
+  'ui.original':'Material original (PDF)','ui.moduls':'módulos','ui.videos':'Vídeo','ui.pdf':'PDF','ui.veure':'Ver el curso','ui.tancar':'Cerrar','ui.descarrega':'Descarga el PDF','ui.tots':'Todas',
+  'cat.formacio':'Formación','cat.jornades':'Jornadas','cat.recerca':'Investigación','cat.divulgacio':'Divulgación'
+ },
+ en:{'hero.cap1':'To learn: the sector\u2019s complete reference, open to everyone','hero.cap2':'To test yourself: assess your facility in 15 minutes','diag.eyebrow':'Test yourself','diag.titol':'The Cyberdiagnostic','diag.p':'A free self-assessment tool based on the NIST framework: answer questions about your facility\u2019s controls and get a maturity radar and a prioritised action plan. It runs entirely in your browser: no data leaves your device.','diag.c1':'Express mode: 22 controls, ~15 min','diag.c2':'Full mode: 90 controls, 6 areas','diag.c3':'Printable radar and action plan','diag.cta':'Start the diagnostic','act.li':'View on LinkedIn','con.li':'Follow us on LinkedIn','act.mes':'Read more',
+  'form.videos':'Video training','form.cursos':'Interactive courses','nav.sobre':'About','nav.formacio':'Training','nav.guia':'The Guide','peu.legal':'Legal notice and privacy','peu.diag':'Cyber check-up','peu.guia':'The Guide','nav.informes':'Reports','nav.activitats':'Activities','nav.xarxa':'Network','nav.contacte':'Contact',
+  'hero.eyebrow':'Universitat de Girona · LEQUIA','hero.t1':'Cybersecurity for the','hero.t2':'water cycle',
+  'hero.sub':'The Chair in Digitalisation and Water Cybersecurity works so that water-cycle operators — especially small and mid-sized ones — can face digitalisation and NIS2 obligations with knowledge, training and practical tools.',
+  'hero.cta1':'Start with the Guide','hero.cta2':'Take the cyber self-assessment','guia.eyebrow':'Open knowledge','guia.titol':'The water cybersecurity guide','guia.p':'Everything you need to understand and protect water infrastructure, in an open guide: from how a plant works to what to require in contracts, with self-marking checkpoints and a ready-to-use toolbox.','guia.c1':'8 thematic blocks','guia.c2':'44 sections','guia.c3':'Self-marking checkpoints','guia.c4':'Templates and checklists','guia.cta':'Open the Guide',
+  'x.activitats':'activities held','x.alumnes':'students trained','x.assistents':'event attendees','x.entitats':'network entities',
+  'sobre.eyebrow':'The chair','sobre.titol':'Research and transfer from Girona for the whole sector',
+  'sobre.p1':'The water sector is critical infrastructure: fragmented, heavy on operational technology (OT) and often short on cybersecurity resources. The Chair, linked to the LEQUIA research group at the Universitat de Girona, contributes specialised training, applied research and self-assessment tools.',
+  'sobre.p2':'Born with the support of INCIBE, the Chair begins a new phase backed by the Catalan Water Partnership (CWP), with a clear focus: helping small and mid-sized operators comply with the NIS2 directive and improve their cybersecurity maturity.',
+  
+  'form.eyebrow':'CyberCampus','form.titol':'Open, free training',
+  'form.intro':'Courses and seminars created by the Chair, openly available. Pick a course to see its modules, videos and downloadable material.',
+  'inf.eyebrow':'Knowledge','inf.titol':'Reports and tools',
+  'inf.intro':'Our own studies on the state of cybersecurity in the water sector, available for direct download.',
+  'eina.titol':'Cyber self-assessment for water operators',
+  'eina.p':'A 90-control self-assessment to gauge your organisation\u2019s cybersecurity maturity and guide NIS2 compliance. Free, anonymous, in your browser.',
+  'eina.cta':'Start the self-assessment',
+  'act.eyebrow':'Archive','act.titol':'Chair activities','act.intro':'Events, training, research and outreach, year by year.',
+  'xar.eyebrow':'Community','xar.titol':'Network and partners',
+  'xar.intro':'The Chair drives the Water Management Cybersecurity Network, connecting operators, technology companies, public administration and academia.',
+  'xar.udg':'Host institution','xar.cwp':'Driving partner','xar.incibe':'Backer of the first phase (2024–2026)',
+  'con.eyebrow':'Let\u2019s talk','con.titol':'Contact','con.email':'Email','con.on':'Where we are','con.cta':'Write to us',
+  'ui.original':'Original material (PDF)','ui.moduls':'modules','ui.videos':'Video','ui.pdf':'PDF','ui.veure':'View course','ui.tancar':'Close','ui.descarrega':'Download PDF','ui.tots':'All',
+  'cat.formacio':'Training','cat.jornades':'Events','cat.recerca':'Research','cat.divulgacio':'Outreach'
+ }
+};
+
+let LANG = 'ca';
+const t = k => (T[LANG] && T[LANG][k]) || T.ca[k] || k;
+
+/* ---------- i18n ---------- */
+function aplicaIdioma(){
+  document.documentElement.lang = LANG;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('.langs button').forEach(b=>b.classList.toggle('actiu', b.dataset.lang===LANG));
+  pintaCursos(); pintaInformes(); pintaFiltres(); pintaActivitats();
+}
+document.querySelectorAll('.langs button').forEach(b=>b.addEventListener('click',()=>{LANG=b.dataset.lang;aplicaIdioma();}));
+
+/* ---------- menú mòbil ---------- */
+const menuBtn=document.getElementById('menu-btn'), navLinks=document.getElementById('nav-links');
+menuBtn.addEventListener('click',()=>{const o=navLinks.classList.toggle('obert');menuBtn.setAttribute('aria-expanded',o);});
+navLinks.addEventListener('click',e=>{if(e.target.tagName==='A')navLinks.classList.remove('obert');});
+
+/* ---------- comptadors ---------- */
+const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const obs = new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting) return;
+    obs.unobserve(e.target);
+    const fi=+e.target.dataset.final;
+    if(reduit){e.target.textContent=fi;return}
+    const t0=performance.now();
+    (function pas(ara){const p=Math.min((ara-t0)/1200,1);e.target.textContent=Math.round(fi*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(pas);})(t0);
+  });
+},{threshold:.4});
+document.querySelectorAll('.xifra b').forEach(el=>obs.observe(el));
+
+/* ---------- cursos ---------- */
+function pintaCursos(){
+  const gv=document.getElementById('cursos-video');
+  gv.innerHTML='';
+  const ICOIMG={seminarios:'persones','como-actuar':'escut-check','marco-legal':'lupa-analisi',nis2:'escut-cadenat','intro-hidrica':'gota-digital','ciber-hidrica':'planta-aigua'};
+  CURSOS.forEach(c=>{
+    const b=document.createElement('a');
+    b.className='curs';
+    b.href=`curs.html#${c.id}/${LANG}`;
+    const ico=ICOIMG[c.id]?`<img class="curs-ico-img" src="icones/${ICOIMG[c.id]}.png" alt="" loading="lazy">`:`<span class="icona">${ICONES[c.ico]||''}</span>`;
+    b.innerHTML=`
+      <div class="capçal">
+        ${ico}
+        <span class="pastilla ${c.tipus}">${c.tipus==='video'?t('ui.videos'):t('ui.pdf')}</span>
+      </div>
+      <span class="meta">${c.moduls.length} ${t('ui.moduls')}</span>
+      <h3>${c.nom[LANG]||c.nom.ca}</h3>
+      <p>${c.desc[LANG]||c.desc.ca}</p>
+      <span class="meta" style="color:var(--aigua)">${t('ui.veure')} →</span>`;
+    if(c.tipus==='video')gv.appendChild(b);
+  });
+}
+/* ---------- informes ---------- */
+function pintaInformes(){
+  const g=document.getElementById('informes-grid');
+  g.innerHTML='';
+  INFORMES.forEach(i=>{
+    const div=document.createElement('div');div.className='informe';
+    div.innerHTML=`<span class="any">${i.any}</span><h3>${i.t}</h3>
+      <a class="boto-pdf" href="${i.url}" target="_blank" rel="noopener">⤓ ${t('ui.descarrega')}</a>`;
+    g.appendChild(div);
+  });
+}
+
+/* ---------- activitats ---------- */
+let FILTRE='tots';
+const CATS=['formacio','jornades','recerca','divulgacio'];
+function pintaFiltres(){
+  const f=document.getElementById('filtres');
+  f.innerHTML='';
+  const mk=(id,label)=>{
+    const b=document.createElement('button');
+    b.textContent=label;
+    b.classList.toggle('actiu',FILTRE===id);
+    b.addEventListener('click',()=>{FILTRE=id;pintaFiltres();pintaActivitats();});
+    return b;
+  };
+  f.appendChild(mk('tots',t('ui.tots')));
+  CATS.forEach(c=>f.appendChild(mk(c,t('cat.'+c))));
+}
+function pintaActivitats(){
+  const l=document.getElementById('activitats-llista');
+  l.innerHTML='';
+  let any='';
+  ACTIVITATS.filter(a=>FILTRE==='tots'||a.c===FILTRE).slice(0,6).forEach(a=>{
+    const y=a.d.slice(0,4);
+    if(y!==any){any=y;const h=document.createElement('p');h.className='any-titol';h.textContent=y;l.appendChild(h);}
+    const div=document.createElement('div');div.className='activitat';
+    div.innerHTML=`<div><b>${a.t}</b><small>${a.s||''}</small>${a.url?`<a class="act-enllac" href="${a.url}" target="_blank" rel="noopener">${/linkedin\./.test(a.url)?t('act.li'):t('act.mes')} \u29c9</a>`:''}</div><span class="tag ${a.c}">${t('cat.'+a.c)}</span>`;
+    l.appendChild(div);
+  });
+}
+
+aplicaIdioma();
+</script>
+
+<div id="cerca-ov" role="dialog" aria-modal="true" aria-label="Cerca">
+  <div class="cerca-caixa">
+    <input id="cerca-inp" type="search" autocomplete="off" placeholder="Cerca a tota la web...">
+    <div id="cerca-res"></div>
+    <div class="cerca-peu" id="cerca-peu"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var btn=document.getElementById('cerca-btn'), ov=document.getElementById('cerca-ov'),
+      inp=document.getElementById('cerca-inp'), res=document.getElementById('cerca-res'),
+      peu=document.getElementById('cerca-peu');
+  var IDX=null, idxLang=null, carregant=false;
+  var L={
+    ca:{ph:'Cerca a tota la web\u2026', pista:'Escriu almenys 2 lletres. Es cerca a la Guia, els cursos, els informes i les activitats.', buit:'Cap resultat per a', peu:'Esc per tancar \u00b7 Ctrl+K per obrir', carregant:'Preparant el cercador\u2026', tguia:'Guia', tcurs:'Curs', tinforme:'Informe', tactivitat:'Activitat', tpag:'P\u00e0gina', bloc:'Bloc'},
+    es:{ph:'Busca en toda la web\u2026', pista:'Escribe al menos 2 letras. Se busca en la Gu\u00eda, los cursos, los informes y las actividades.', buit:'Ning\u00fan resultado para', peu:'Esc para cerrar \u00b7 Ctrl+K para abrir', carregant:'Preparando el buscador\u2026', tguia:'Gu\u00eda', tcurs:'Curso', tinforme:'Informe', tactivitat:'Actividad', tpag:'P\u00e1gina', bloc:'Bloque'},
+    en:{ph:'Search the whole site\u2026', pista:'Type at least 2 letters. Searches the Guide, courses, reports and activities.', buit:'No results for', buitfi:'', peu:'Esc to close \u00b7 Ctrl+K to open', carregant:'Preparing search\u2026', tguia:'Guide', tcurs:'Course', tinforme:'Report', tactivitat:'Activity', tpag:'Page', bloc:'Block'}
+  };
+  function lg(){var l=(typeof LANG!=='undefined'&&LANG)||document.documentElement.getAttribute('lang')||'ca'; return L[l]?l:'ca';}
+  function nrm(t){return String(t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+  function val(x,l){return (x&&typeof x==='object')?(x[l]||x.ca||''):(x==null?'':String(x));}
+  function neteja(h){return String(h).replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();}
+  function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+  function construeix(l){
+    var I=[], i, j;
+    if(typeof GUIA!=='undefined'){
+      for(i=0;i<GUIA.blocs.length;i++){var b=GUIA.blocs[i];
+        for(j=0;j<b.sub.length;j++){var su=b.sub[j];
+          I.push({tip:'guia', t:val(su.titol,l), cos:neteja(val(su.cont,l)),
+                  ruta:L[l].bloc+' '+b.num+' \u00b7 '+val(b.titol,l),
+                  url:'guia.html#'+l+'/'+b.id+'/'+su.id});}
+        if(b.cas)I.push({tip:'guia', t:'Cas Aig\u00fces de Vallclara \u00b7 cap. '+b.num,
+                  cos:neteja(val(b.cas,l)), ruta:L[l].bloc+' '+b.num+' \u00b7 '+val(b.titol,l),
+                  url:'guia.html#'+l+'/'+b.id});}
+    }
+    if(typeof CURSOS!=='undefined'){
+      for(i=0;i<CURSOS.length;i++){var c=CURSOS[i]; var mods='';
+        if(c.moduls)for(j=0;j<c.moduls.length;j++)mods+=' '+val(c.moduls[j].t,l);
+        I.push({tip:'curs', t:val(c.nom,l), cos:neteja(val(c.desc,l))+mods, ruta:'', url:'curs.html#'+c.id});}
+    }
+    if(typeof INFORMES!=='undefined'){
+      for(i=0;i<INFORMES.length;i++){var inf=INFORMES[i];
+        I.push({tip:'informe', t:inf.t, cos:'', ruta:inf.any, url:inf.url, ext:true});}
+    }
+    if(typeof ACTIVITATS!=='undefined'){
+      for(i=0;i<ACTIVITATS.length;i++){var a=ACTIVITATS[i];
+        I.push({tip:'activitat', t:a.t, cos:neteja(a.s||''), ruta:a.d, url:'#activitats'});}
+    }
+    I.push({tip:'pag', t:val({ca:'El Ciberdiagn\u00f2stic',es:'El Ciberdiagn\u00f3stico',en:'The Cyberdiagnostic'},l),
+            cos:val({ca:'Autoavaluaci\u00f3 gratu\u00efta de ciberseguretat basada en el marc NIST: radar de maduresa i pla d\u2019acci\u00f3.',
+                     es:'Autoevaluaci\u00f3n gratuita de ciberseguridad basada en el marco NIST: radar de madurez y plan de acci\u00f3n.',
+                     en:'Free cybersecurity self-assessment based on the NIST framework: maturity radar and action plan.'},l),
+            ruta:'', url:'ciberdiagnostic.html'});
+    I.push({tip:'pag', t:val({ca:'La c\u00e0tedra',es:'La c\u00e1tedra',en:'About the chair'},l),
+            cos:val({ca:'Qui som, missi\u00f3 i equip de la C\u00e0tedra INCIBE\u2013UdG.',es:'Qui\u00e9nes somos, misi\u00f3n y equipo de la C\u00e1tedra INCIBE\u2013UdG.',en:'Who we are: mission and team of the INCIBE\u2013UdG Chair.'},l),
+            ruta:'', url:'#sobre'});
+    for(i=0;i<I.length;i++){I[i].nt=nrm(I[i].t); I[i].nc=nrm(I[i].cos);}
+    return I;
+  }
+
+  function cerca(q){
+    var l=lg(), termes=nrm(q).split(/\s+/).filter(function(x){return x.length>1;});
+    if(!termes.length)return [];
+    var out=[], i, k;
+    for(i=0;i<IDX.length;i++){var it=IDX[i], p=0, tot=true;
+      for(k=0;k<termes.length;k++){
+        var enT=it.nt.indexOf(termes[k])>-1, enC=it.nc.indexOf(termes[k])>-1;
+        if(!enT&&!enC){tot=false;break;}
+        p+=enT?5:1;}
+      if(tot){it.p=p; out.push(it);}}
+    out.sort(function(a,b){return b.p-a.p;});
+    if(!out.length){
+      var curts=termes.map(function(t){return t.length>5?t.slice(0,Math.max(4,Math.ceil(t.length*0.6))):t;});
+      if(curts.join(' ')!==termes.join(' ')){
+        for(i=0;i<IDX.length;i++){var it2=IDX[i], p2=0, tot2=true;
+          for(k=0;k<curts.length;k++){
+            var eT=it2.nt.indexOf(curts[k])>-1, eC=it2.nc.indexOf(curts[k])>-1;
+            if(!eT&&!eC){tot2=false;break;}
+            p2+=eT?5:1;}
+          if(tot2){it2.p=p2; out.push(it2);}}
+        out.sort(function(a,b){return b.p-a.p;});
+      }
+    }
+    return out.slice(0,25);
+  }
+
+  function fragment(it,termes){
+    var pos=-1, i, t='';
+    for(i=0;i<termes.length;i++){pos=it.nc.indexOf(termes[i]); if(pos>-1){t=termes[i];break;}}
+    if(pos<0)return esc(it.cos.slice(0,110));
+    var ini=Math.max(0,pos-45), fi=Math.min(it.cos.length,pos+t.length+65);
+    var tros=(ini>0?'\u2026':'')+it.cos.slice(ini,fi)+(fi<it.cos.length?'\u2026':'');
+    var re=new RegExp('('+termes.map(function(x){return x.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}).join('|')+')','gi');
+    return esc(tros).replace(re,'<mark>$1</mark>');
+  }
+
+  function pinta(q){
+    var l=lg(), tx=L[l];
+    if(q.trim().length<2){res.innerHTML='<div class="cerca-pista">'+tx.pista+'</div>'; return;}
+    var r=cerca(q), termes=nrm(q).split(/\s+/).filter(function(x){return x.length>1;});
+    termes=termes.concat(termes.map(function(t){return t.length>5?t.slice(0,Math.max(4,Math.ceil(t.length*0.6))):t;}));
+    if(!r.length){res.innerHTML='<div class="cerca-pista">'+tx.buit+' \u00ab'+esc(q)+'\u00bb</div>'; return;}
+    var h='';
+    for(var i=0;i<r.length;i++){var it=r[i];
+      h+='<a class="cerca-item" href="'+it.url+'"'+(it.ext?' target="_blank" rel="noopener"':'')+'>'
+        +'<span class="ct"><span class="etq etq-'+(it.url==='ciberdiagnostic.html'?'diag':it.tip)+'">'+tx['t'+it.tip]+'</span>'+esc(it.t)+'</span>'
+        +(it.ruta?'<span class="cerca-crumb">'+esc(it.ruta)+'</span>':'')
+        +(it.cos?'<span class="cs">'+fragment(it,termes)+'</span>':'')
+        +'</a>';}
+    res.innerHTML=h;
+  }
+
+  function obre(){
+    var l=lg();
+    inp.placeholder=L[l].ph; peu.textContent=L[l].peu;
+    ov.classList.add('obert'); document.body.style.overflow='hidden';
+    inp.focus();
+    if(typeof GUIA==='undefined'&&!carregant){
+      carregant=true; res.innerHTML='<div class="cerca-pista">'+L[l].carregant+'</div>';
+      var sc=document.createElement('script'); sc.src='guia.js';
+      sc.onload=sc.onerror=function(){IDX=construeix(lg()); idxLang=lg(); pinta(inp.value);};
+      document.head.appendChild(sc);
+    } else if(!IDX||idxLang!==l){IDX=construeix(l); idxLang=l; pinta(inp.value);}
+    else pinta(inp.value);
+  }
+  function tanca(){ov.classList.remove('obert'); document.body.style.overflow='';}
+
+  btn.addEventListener('click',obre);
+  ov.addEventListener('click',function(e){if(e.target===ov)tanca();});
+  res.addEventListener('click',function(e){if(e.target.closest('a'))tanca();});
+  inp.addEventListener('input',function(){pinta(inp.value);});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&ov.classList.contains('obert'))tanca();
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();obre();}
+    if(e.key==='/'&&!ov.classList.contains('obert')&&!/input|textarea|select/i.test(document.activeElement.tagName)){e.preventDefault();obre();}
+  });
+})();
+</script>
+</body>
+</html>

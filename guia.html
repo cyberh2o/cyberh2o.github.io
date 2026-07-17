@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de ciberseguretat hídrica — CiberH2O</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="description" content="Guia oberta de ciberseguretat per al sector de l'aigua: infraestructures, sistemes OT, amenaces, NIS2 i marc legal, estàndards, auditories i resposta a incidents. Càtedra de la Universitat de Girona.">
+<link rel="canonical" href="https://cyberh2o.es/guia.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CiberH2O — Universitat de Girona">
+<meta property="og:title" content="Guia de ciberseguretat hídrica — CiberH2O">
+<meta property="og:description" content="Tot el coneixement per entendre i protegir les infraestructures de l'aigua, en una guia oberta i gratuïta: OT, amenaces, marc legal, estàndards i resposta a incidents.">
+<meta property="og:image" content="https://cyberh2o.es/social.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estil.css">
+</head>
+<body>
+
+<nav>
+  <div class="contenidor nav-inner">
+    <a href="index.html" class="marca"><img src="logo.png" alt="" class="logo-img"><img src="logo-text.png" alt="Càtedra de Digitalització i Ciberseguretat Hídrica" class="logo-text-img"></a>
+    <a class="tornar" id="tornar" href="index.html" style="margin-left:auto">←&nbsp;<span id="tornar-txt">Inici</span></a>
+    <div class="langs" role="group" aria-label="Idioma">
+      <button data-lang="ca">CA</button>
+      <button data-lang="es">ES</button>
+      <button data-lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="curs-hero hero-profunditat">
+  <div class="contenidor">
+    <span class="pastilla" id="g-tipus"></span>
+    <h1 id="g-titol"></h1>
+    <p id="g-intro"></p>
+    <span class="meta" id="g-progres"></span>
+    <br><a class="cta-diag" id="g-diag" href="ciberdiagnostic.html"></a>
+  </div>
+</header>
+<svg class="ona-hero" viewBox="0 0 1440 44" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22 C240 44 480 2 720 22 C960 42 1200 4 1440 22 L1440 44 L0 44 Z" fill="#F2F7FB"/></svg>
+
+<main class="cos-curs">
+  <div class="contenidor">
+    <div class="cerca-guia">
+      <input type="search" id="g-cerca" autocomplete="off">
+      <div id="g-resultats" role="listbox"></div>
+    </div>
+    <div id="g-idioma-avis" hidden class="callout" style="margin-bottom:18px"></div>
+    <div class="itineraris" id="g-itin"></div>
+    <div class="mapa-guia" id="g-mapa"></div>
+    <div id="g-blocs"></div>
+    <section id="g-repte"></section>
+  </div>
+</main>
+
+<footer>
+  <div class="contenidor">
+    <span>© 2026 Càtedra de Digitalització i Ciberseguretat Hídrica · Universitat de Girona</span>
+    <span><a href="index.html">Inici</a> · <a href="legal.html">Avís legal i privacitat</a> · <a href="https://www.linkedin.com/in/c%C3%A0tedra-digitalitzaci%C3%B3-i-ciberseguretat-de-la-udg-729004420" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script src="guia.js"></script>
+<script>
+const TG={
+  ca:{tipus:'Guia oberta',tornar:'Inici',subsecs:'apartats',check:'Punt de control',pend:'En preparació · s\u2019ampliarà',progres:'{n} de {t} punts de control superats',mapa:'Què hi trobaràs',practica:'A la pràctica',diag:'Fes el ciberdiagnòstic',copiat:'Enllaç copiat!',eines:'eines',cerca:'Cerca a la guia (p. ex. MFA, notificació, SCADA)…',capres:'Cap resultat',superat:'Superat anteriorment',cas:'El cas · Aigües de Vallclara',capvid:'Per aprofundir en vídeo',vercurs:'Obre el curs complet',comenca:'Comença aquí segons el teu perfil',itgestor:'Gestió i direcció',itoperacio:'Tècnic d\u2019operació',itit:'Responsable IT',itdocent:'Docent o estudiant',itlectura:'El teu itinerari de lectura',compartir:'Copia el teu resultat',compartit:'Resultat copiat! Enganxa\u2019l on vulguis.'},
+  es:{tipus:'Guía abierta',tornar:'Inicio',subsecs:'apartados',check:'Punto de control',pend:'En preparación · se ampliará',progres:'{n} de {t} puntos de control superados',mapa:'Qué encontrarás',practica:'En la práctica',diag:'Haz el ciberdiagnóstico',copiat:'¡Enlace copiado!',eines:'herramientas',cerca:'Busca en la guía (p. ej. MFA, notificación, SCADA)…',capres:'Sin resultados',superat:'Superado anteriormente',cas:'El caso · Aigües de Vallclara',capvid:'Para profundizar en vídeo',vercurs:'Abre el curso completo',comenca:'Empieza aquí según tu perfil',itgestor:'Gestión y dirección',itoperacio:'Técnico de operación',itit:'Responsable IT',itdocent:'Docente o estudiante',itlectura:'Tu itinerario de lectura',compartir:'Copia tu resultado',compartit:'¡Resultado copiado! Pégalo donde quieras.'},
+  en:{tipus:'Open guide',tornar:'Home',subsecs:'sections',check:'Checkpoint',pend:'In preparation · to be expanded',progres:'{n} of {t} checkpoints completed',mapa:'What you will find',practica:'In practice',diag:'Take the cyber check-up',copiat:'Link copied!',eines:'tools',cerca:'Search the guide (e.g. MFA, notification, SCADA)…',capres:'No results',superat:'Previously completed',cas:'The case · Aigües de Vallclara',capvid:'Go deeper on video',vercurs:'Open the full course',comenca:'Start here based on your role',itgestor:'Management',itoperacio:'Plant operations',itit:'IT lead',itdocent:'Teacher or student',itlectura:'Your reading path',compartir:'Copy your result',compartit:'Result copied! Paste it anywhere.'}
+};
+const ITIN=[
+ {id:'gestor',ico:'🏛️',rutes:[['aigua','cicle'],['legal','nis2'],['amenaces','casos'],['estandards','mesures'],['resposta','pla']]},
+ {id:'operacio',ico:'⚙️',rutes:[['ot','queesot'],['ot','components'],['amenaces','vectors'],['estandards','persones'],['resposta','contencio']]},
+ {id:'it',ico:'🖧',rutes:[['ot','purdue'],['ot','protocols'],['amenaces','anatomia'],['estandards','62443'],['auditories','evidencies']]},
+ {id:'docent',ico:'🎓',rutes:[['aigua','cicle'],['ot','components'],['amenaces','casos'],['legal','mapa'],['eines','glossari']]}
+];
+const PROFUNDITAT=['#00B4CB','#00A3C2','#0090B4','#007AA6','#006396','#004E85','#16386E','#0D1B4C'];
+let LANG='ca';
+const T=(o)=>o?(o[LANG]||o.ca):'';
+
+function render(){
+  const hash=(location.hash.slice(1)||'').split('/');
+  if(['ca','es','en'].includes(hash[0]))LANG=hash[0];
+  const tg=TG[LANG];
+  document.documentElement.lang=LANG;
+  document.title=T(GUIA.titol)+' — CiberH2O';
+  document.getElementById('tornar-txt').textContent=tg.tornar;
+  document.getElementById('g-tipus').textContent=tg.tipus;
+  document.getElementById('g-titol').textContent=T(GUIA.titol);
+  document.getElementById('g-intro').textContent=T(GUIA.intro);
+  document.getElementById('g-diag').textContent=tg.diag;
+  const avisIdioma=document.getElementById('g-idioma-avis');
+  avisIdioma.hidden=(LANG==='ca');
+  avisIdioma.textContent=LANG==='es'?'El contenido de esta guía está disponible en catalán; la traducción al castellano está en curso.':LANG==='en'?'The content of this guide is currently available in Catalan; the English translation is in progress.':'';
+  document.querySelectorAll('.langs button').forEach(b=>{
+    b.classList.toggle('actiu',b.dataset.lang===LANG);
+    b.onclick=()=>{location.hash=b.dataset.lang;};
+  });
+
+  /* Itineraris per perfil */
+  const it=document.getElementById('g-itin');
+  it.innerHTML='<h3 class="mapa-titol">'+tg.comenca+'</h3>';
+  const fila=document.createElement('div');fila.className='itin-fila';
+  const panell=document.createElement('div');panell.className='itin-panell';panell.hidden=true;
+  ITIN.forEach(perfil=>{
+    const b=document.createElement('button');b.type='button';b.className='itin-xip';
+    b.innerHTML=perfil.ico+' '+tg['it'+perfil.id];
+    b.addEventListener('click',()=>{
+      fila.querySelectorAll('.itin-xip').forEach(x=>x.classList.toggle('actiu',x===b&&!b.classList.contains('actiu')));
+      if(!b.classList.contains('actiu')){panell.hidden=true;return;}
+      panell.hidden=false;
+      let h='<b>'+tg.itlectura+':</b><ol>';
+      perfil.rutes.forEach(([bl,sb])=>{
+        const bloc=GUIA.blocs.find(x=>x.id===bl);
+        const i=bloc.sub.findIndex(x=>x.id===sb);
+        h+='<li><a href="#'+LANG+'/'+bl+'/'+sb+'" data-bl="'+bl+'" data-sb="'+sb+'">'+bloc.num+'.'+(i+1)+' '+T(bloc.sub[i].titol)+'</a></li>';
+      });
+      panell.innerHTML=h+'</ol>';
+      panell.querySelectorAll('a').forEach(a=>a.addEventListener('click',ev=>{ev.preventDefault();obreBloc(a.dataset.bl,true,a.dataset.sb);}));
+    });
+    fila.appendChild(b);
+  });
+  it.appendChild(fila);it.appendChild(panell);
+
+  /* Mapa de blocs */
+  const mapa=document.getElementById('g-mapa');
+  mapa.innerHTML='<h3 class="mapa-titol">'+tg.mapa+'</h3>';
+  const graella=document.createElement('div');graella.className='mapa-graella';
+  GUIA.blocs.forEach(b=>{
+    const a=document.createElement('a');a.className='mapa-bloc';a.href='#'+LANG+'/'+b.id;
+    const compta=b.check?b.sub.length+' '+tg.subsecs+' + 1 '+tg.check.toLowerCase():b.sub.length+' '+tg.eines;
+    a.innerHTML='<span class="mapa-num">'+String(b.num).padStart(2,'0')+'</span><b>'+T(b.titol)+'</b><span class="mapa-compta">'+compta+'</span>';
+    a.addEventListener('click',ev=>{ev.preventDefault();obreBloc(b.id,true);});
+    graella.appendChild(a);
+  });
+  mapa.appendChild(graella);
+
+  /* Blocs */
+  const cont=document.getElementById('g-blocs');
+  cont.innerHTML='';
+  GUIA.blocs.forEach(b=>{
+    const sec=document.createElement('section');sec.className='bloc-guia';
+    sec.style.setProperty('--prof',PROFUNDITAT[(b.num-1)%8]);sec.id='bloc-'+b.id;
+    const h=document.createElement('h2');h.className='bloc-cap';
+    h.innerHTML='<span class="num">'+String(b.num).padStart(2,'0')+'</span><span class="bloc-txt"><span class="bloc-titol">'+T(b.titol)+'</span><span class="bloc-desc">'+T(b.desc)+'</span></span><span class="xevro">▾</span>';
+    h.setAttribute('tabindex','0');h.setAttribute('role','button');h.setAttribute('aria-expanded','false');
+    const commuta=()=>{sec.classList.toggle('obert');h.setAttribute('aria-expanded',sec.classList.contains('obert'));};
+    h.addEventListener('click',commuta);
+    h.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();commuta();}});
+    sec.appendChild(h);
+    const cos=document.createElement('div');cos.className='bloc-cos';
+    b.sub.forEach((s,i)=>{
+      const d=document.createElement('details');d.className='subsec';d.id='sub-'+b.id+'-'+s.id;
+      const pendent=s.estat==='pend'?'<span class="etiq etiq-pend">'+tg.pend+'</span>':'';
+      let contHtml=T(s.cont).split('class="flip"').join('class="flip" tabindex="0" role="button"');
+      d.innerHTML='<summary><span class="sub-num">'+b.num+'.'+(i+1)+'</span>'+T(s.titol)+pendent+'<button class="sub-enllac" data-enllac="'+b.id+'/'+s.id+'" title="Copia l\u2019enllaç" aria-label="Copia l\u2019enllaç">⧉</button></summary><div class="sub-cos">'+T(s.cont)+'</div>';
+      cos.appendChild(d);
+    });
+    if(b.cas){
+      const cx=document.createElement('div');cx.className='cas-fil';
+      cx.innerHTML='<div class="cas-cap">'+tg.cas+' · '+b.num+'/7</div>'+T(b.cas);
+      cos.appendChild(cx);
+    }
+    if(b.practica){
+      const pr=document.createElement('div');pr.className='practica';
+      pr.innerHTML='<div class="prac-cap">'+tg.practica+'</div>'+T(b.practica);
+      cos.appendChild(pr);
+    }
+    if(b.videos&&b.videos.items&&b.videos.items.length){
+      const vd=document.createElement('div');vd.className='bloc-videos';
+      vd.innerHTML='<div class="prac-cap" style="color:var(--aigua)">'+tg.capvid+'</div>';
+      const gr=document.createElement('div');gr.className='videos-grid';
+      b.videos.items.forEach(v=>{
+        const cel=document.createElement('div');
+        cel.appendChild(marcVideo(v.yt,v.t));
+        const tt=document.createElement('p');tt.className='video-titol';tt.textContent=v.t;
+        cel.appendChild(tt);gr.appendChild(cel);
+      });
+      vd.appendChild(gr);
+      if(b.videos.curs){
+        const a=document.createElement('a');a.className='videos-curs';
+        a.href='curs.html#'+b.videos.curs.id+'/'+LANG;
+        a.textContent=tg.vercurs+': '+b.videos.curs.t+' →';
+        vd.appendChild(a);
+      }
+      cos.appendChild(vd);
+    }
+    if(b.check){
+      const ck=document.createElement('div');ck.className='checkpoint';
+      ck.innerHTML='<div class="check-cap">🏁 '+tg.check+' '+b.num+'</div>'+T(b.check);
+      cos.appendChild(ck);
+    }
+    sec.appendChild(cos);
+    cont.appendChild(sec);
+  });
+  /* El repte final */
+  const rp=document.getElementById('g-repte');
+  if(GUIA.repte){
+    rp.className='bloc-guia obert repte';rp.style.setProperty('--prof','#0D1B4C');
+    rp.innerHTML='<div class="bloc-cos" style="display:block;padding:20px"><h2 style="margin-bottom:6px">🏆 '+T(GUIA.repte.titol)+'</h2><p style="color:var(--tinta-suau);margin-bottom:14px">'+T(GUIA.repte.intro)+'</p>'+T(GUIA.repte.cont)+'</div>';
+    const b7=document.getElementById('bloc-resposta');
+    if(b7)b7.after(rp);
+  }
+  actualitzaProgres();
+  if(typeof INDEX!=='undefined'){indexa();const c=document.getElementById('g-cerca');if(c)c.placeholder=TG[LANG].cerca;restauraEstat();}
+  if(hash[1])obreBloc(hash[1],true,hash[2]);
+}
+
+function obreBloc(id,despl,subId){
+  const sec=document.getElementById('bloc-'+id);
+  if(!sec)return;
+  sec.classList.add('obert');
+  let dest=sec;
+  if(subId){
+    const d=document.getElementById('sub-'+id+'-'+subId);
+    if(d){d.open=true;dest=d;}
+  }
+  if(despl)dest.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function actualitzaProgres(){
+  const tot=document.querySelectorAll('.checkpoint .quiz-grup').length;
+  const fets=document.querySelectorAll('.checkpoint .quiz-grup .quiz-resultat').length;
+  const tg=TG[LANG];
+  document.getElementById('g-progres').textContent=tg.progres.replace('{n}',fets).replace('{t}',tot);
+  document.querySelectorAll('.checkpoint').forEach(c=>{
+    c.classList.toggle('fet',!!c.querySelector('.quiz-resultat'));
+  });
+}
+
+function marcVideo(id,titol){
+  const w=document.createElement('div');w.className='video-marc';
+  w.innerHTML='<img src="https://img.youtube.com/vi/'+id+'/hqdefault.jpg" alt="" loading="lazy"><button class="play" aria-label="'+titol+'"><span class="rodona">▶</span></button>';
+  w.querySelector('.play').addEventListener('click',()=>{
+    w.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1" title="'+titol+'" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+  });
+  return w;
+}
+
+/* ---- Cercador ---- */
+let INDEX=[];
+function indexa(){
+  INDEX=[];
+  const net=h=>h.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').toLowerCase();
+  GUIA.blocs.forEach(b=>b.sub.forEach((sb,i)=>INDEX.push({bloc:b.id,num:b.num+'.'+(i+1),sub:sb.id,titol:T(sb.titol),text:net(T(sb.titol)+' '+T(sb.cont))})));
+}
+function cerca(q){
+  const res=document.getElementById('g-resultats');
+  q=q.trim().toLowerCase();
+  if(q.length<2){res.innerHTML='';res.style.display='none';return;}
+  const hits=INDEX.filter(x=>x.text.includes(q)).slice(0,8);
+  res.style.display='block';
+  res.innerHTML=hits.length?'':'<div class="cerca-buit">'+TG[LANG].capres+'</div>';
+  hits.forEach(h=>{
+    const b=document.createElement('button');b.type='button';b.setAttribute('role','option');
+    b.innerHTML='<span class="sub-num">'+h.num+'</span> '+h.titol;
+    b.addEventListener('click',()=>{obreBloc(h.bloc,true,h.sub);res.innerHTML='';res.style.display='none';document.getElementById('g-cerca').value='';});
+    res.appendChild(b);
+  });
+}
+
+/* ---- Persistència (amb try/catch: pot no estar disponible) ---- */
+function desa(clau,val){try{localStorage.setItem(clau,JSON.stringify(val));}catch(e){}}
+function llegeix(clau){try{return JSON.parse(localStorage.getItem(clau))||{};}catch(e){return{};}}
+function restauraEstat(){
+  const marcats=llegeix('guia-checklist');
+  document.querySelectorAll('.llista-check').forEach((ul,u)=>{
+    ul.querySelectorAll('li').forEach((li,i)=>{if((marcats[u]||[]).includes(i))li.classList.add('marcat');});
+  });
+  const punts=llegeix('guia-punts');
+  document.querySelectorAll('.checkpoint').forEach(c=>{
+    const bloc=c.closest('.bloc-guia').id.replace('bloc-','');
+    if(punts[bloc]&&!c.querySelector('.quiz-resultat')){
+      c.classList.add('fet');
+      if(!c.querySelector('.check-previ')){
+        const n=document.createElement('p');n.className='check-previ';
+        n.textContent=TG[LANG].superat+': '+punts[bloc];
+        c.querySelector('.check-cap').after(n);
+      }
+    }
+  });
+  actualitzaProgresPersistent();
+}
+function desaChecklist(){
+  const estat={};
+  document.querySelectorAll('.llista-check').forEach((ul,u)=>{
+    estat[u]=[...ul.querySelectorAll('li')].map((li,i)=>li.classList.contains('marcat')?i:-1).filter(i=>i>=0);
+  });
+  desa('guia-checklist',estat);
+}
+function actualitzaProgresPersistent(){
+  const tot=document.querySelectorAll('.checkpoint .quiz-grup').length;
+  const fets=document.querySelectorAll('.checkpoint.fet').length;
+  document.getElementById('g-progres').textContent=TG[LANG].progres.replace('{n}',fets).replace('{t}',tot);
+}
+
+/* ---- Impressió: desplegar-ho tot abans d'imprimir ---- */
+addEventListener('beforeprint',()=>{
+  document.querySelectorAll('.bloc-guia').forEach(b=>b.classList.add('obert'));
+  document.querySelectorAll('details.subsec').forEach(d=>d.open=true);
+});
+
+addEventListener('hashchange',render);
+render();
+indexa();
+document.getElementById('g-cerca').placeholder=TG[LANG].cerca;
+document.getElementById('g-cerca').addEventListener('input',e=>cerca(e.target.value));
+restauraEstat();
+
+/* Motor d'interactivitat (pestanyes, qüestionaris, targetes i escenaris) */
+document.addEventListener('keydown',e=>{
+  if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('flip')){e.preventDefault();e.target.click();}
+});
+document.addEventListener('click',e=>{
+  const en=e.target.closest('.sub-enllac');
+  if(en){
+    e.preventDefault();e.stopPropagation();
+    const url=location.href.split('#')[0]+'#'+LANG+'/'+en.dataset.enllac;
+    const fet=()=>{const t=en.textContent;en.textContent='✓';setTimeout(()=>{en.textContent=t;},1200);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(fet,fet);}else{fet();}
+    return;
+  }
+  const ci=e.target.closest('.llista-check li');
+  if(ci){ci.classList.toggle('marcat');desaChecklist();return;}
+  const fl=e.target.closest('.flip');
+  if(fl){fl.classList.toggle('girada');return;}
+  const eo=e.target.closest('.esc-opt');
+  if(eo){
+    const esc=eo.closest('.escenari');
+    if(esc.classList.contains('resolt'))return;
+    esc.classList.add('resolt');
+    esc.querySelectorAll('.esc-opt').forEach(o=>{if(o.dataset.ok!==undefined)o.classList.add('ok')});
+    if(eo.dataset.ok===undefined)eo.classList.add('mal');
+    const fb=esc.querySelector('.esc-fb');
+    if(fb&&eo.dataset.fb)fb.textContent=eo.dataset.fb;
+    return;
+  }
+  const tb=e.target.closest('.tab-btn');
+  if(tb){
+    const tabs=tb.closest('.tabs');
+    tabs.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('actiu',b===tb));
+    tabs.querySelectorAll('.tab-panell').forEach(p=>p.classList.toggle('actiu',p.dataset.tab===tb.dataset.tab));
+    return;
+  }
+  const qo=e.target.closest('.quiz-opt');
+  if(qo){
+    const preg=qo.closest('.quiz-preg');
+    if(preg.classList.contains('resolt'))return;
+    preg.classList.add('resolt');
+    preg.querySelectorAll('.quiz-opt').forEach(o=>{if(o.dataset.ok!==undefined)o.classList.add('ok')});
+    if(qo.dataset.ok===undefined)qo.classList.add('mal');else preg.classList.add('encert');
+    const grup=preg.closest('.quiz-grup');
+    if(grup && !grup.querySelector('.quiz-preg:not(.resolt)') && !grup.querySelector('.quiz-resultat')){
+      const n=grup.querySelectorAll('.quiz-preg.encert').length;
+      const tot=grup.querySelectorAll('.quiz-preg').length;
+      const r=document.createElement('p');r.className='quiz-resultat';
+      r.textContent=(grup.dataset.res||'{n} / {t}').replace('{n}',n).replace('{t}',tot);
+      grup.appendChild(r);
+      if(grup.closest('#g-repte')){
+        const bt=document.createElement('button');bt.type='button';bt.className='boto-compartir';
+        bt.textContent=TG[LANG].compartir;
+        bt.addEventListener('click',()=>{
+          const txt=r.textContent+' — Guia de ciberseguretat hídrica · CiberH2O (UdG) · https://cyberh2o.es/guia.html';
+          const fet=()=>{bt.textContent=TG[LANG].compartit;setTimeout(()=>bt.textContent=TG[LANG].compartir,2500);};
+          if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(fet,fet);}else{fet();}
+        });
+        grup.appendChild(bt);
+      }
+      const cp=grup.closest('.checkpoint');
+      if(cp){
+        const bloc=cp.closest('.bloc-guia').id.replace('bloc-','');
+        const punts=llegeix('guia-punts');punts[bloc]=n+' / '+tot;desa('guia-punts',punts);
+      }
+    }
+    actualitzaProgres();
+  }
+});
+</script>
+</body>
+</html>
