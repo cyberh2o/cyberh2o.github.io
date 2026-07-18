@@ -628,5 +628,22 @@ nav .cerca-btn:hover{border-color:var(--cian);color:var(--aigua)}
 .pub-grid img{width:100%;max-width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:12px;
   background:#E8F1F7;box-shadow:0 4px 14px rgba(9,18,34,.08);transition:transform .2s,box-shadow .2s}
 .pub-grid img:hover{transform:scale(1.025);box-shadow:0 10px 24px rgba(9,18,34,.14)}
+.pub-grid img{cursor:zoom-in}
 .pub-peu{margin-top:18px}
 @media (prefers-reduced-motion:reduce){.pub-grid img{transition:none}}
+
+
+/* Visor de fotos a pantalla completa */
+#llum{position:fixed;inset:0;background:rgba(6,12,24,.93);z-index:9500;display:none;align-items:center;justify-content:center}
+#llum.obert{display:flex}
+#llum img{max-width:92vw;max-height:86vh;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.5)}
+#llum button{position:absolute;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;
+  border-radius:50%;width:44px;height:44px;font-size:24px;line-height:1;cursor:pointer;display:grid;place-items:center;
+  transition:background .15s}
+#llum button:hover{background:rgba(255,255,255,.25)}
+#llum-tanca{top:18px;right:18px}
+#llum-ant{left:14px;top:50%;transform:translateY(-50%)}
+#llum-seg{right:14px;top:50%;transform:translateY(-50%)}
+#llum-compta{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:#cfe3ef;font-size:13px;
+  background:rgba(255,255,255,.1);border-radius:999px;padding:5px 14px}
+@media (max-width:560px){#llum img{max-width:96vw}#llum button{width:40px;height:40px}}
