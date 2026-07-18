@@ -583,6 +583,12 @@ aplicaIdioma();
   });
 })();
 </script>
+<div id="llum" role="dialog" aria-modal="true" aria-label="Visor de fotos">
+  <button id="llum-tanca" aria-label="Tanca">×</button>
+  <button id="llum-ant" aria-label="Anterior">‹</button>
+  <img id="llum-img" alt="">
+  <button id="llum-seg" aria-label="Següent">›</button>
+  <div id="llum-compta"></div>
 <script>
 // LA CÀTEDRA EN ACCIÓ — mosaic de fotos. Es mostren TOTES les de la llista, en aquest ordre.
 // Afegir-ne: 1) puja-la a fotos/ (.../upload/main/fotos)  2) afegeix 'fotos/nom.jpg', on vulguis de la llista.
@@ -649,12 +655,6 @@ var FOTOS = [
   });
 })();
 </script>
-<div id="llum" role="dialog" aria-modal="true" aria-label="Visor de fotos">
-  <button id="llum-tanca" aria-label="Tanca">×</button>
-  <button id="llum-ant" aria-label="Anterior">‹</button>
-  <img id="llum-img" alt="">
-  <button id="llum-seg" aria-label="Següent">›</button>
-  <div id="llum-compta"></div>
 </div>
 </body>
 </html>
