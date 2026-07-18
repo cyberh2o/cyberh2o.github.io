@@ -610,3 +610,14 @@ nav .cerca-btn:hover{border-color:var(--cian);color:var(--aigua)}
   padding:12px 20px;font-weight:700;font-size:14.5px;text-decoration:none;transition:transform .15s,box-shadow .15s}
 .boto-linkedin:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(10,102,194,.35);text-decoration:none;color:#fff}
 @media (max-width:640px){.contacte-botons{margin-left:0!important;width:100%}.boto-linkedin,.contacte-botons .boto{width:100%;justify-content:center;text-align:center}}
+
+
+/* Botó de tornar amunt (portada) */
+#amunt{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;
+  background:linear-gradient(135deg,#00B4CB,#0A7FA8);color:#fff;display:grid;place-items:center;
+  box-shadow:0 10px 26px rgba(9,18,34,.35);opacity:0;pointer-events:none;transform:translateY(8px);
+  transition:opacity .25s,transform .25s;z-index:800}
+#amunt.vist{opacity:1;pointer-events:auto;transform:translateY(0)}
+#amunt:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,180,203,.45)}
+@media (prefers-reduced-motion:reduce){#amunt{transition:opacity .25s}}
+@media print{#amunt{display:none}}
