@@ -621,3 +621,17 @@ nav .cerca-btn:hover{border-color:var(--cian);color:var(--aigua)}
 #amunt:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,180,203,.45)}
 @media (prefers-reduced-motion:reduce){#amunt{transition:opacity .25s}}
 @media print{#amunt{display:none}}
+
+
+/* Publicacions de LinkedIn (fotos pròpies, sense galetes de tercers) */
+.pub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin-top:26px}
+.pub-card{display:flex;flex-direction:column;background:#fff;border-radius:14px;overflow:hidden;
+  box-shadow:0 6px 18px rgba(9,18,34,.08);text-decoration:none;color:var(--tinta);
+  transition:transform .18s,box-shadow .18s}
+.pub-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,18,34,.14);text-decoration:none}
+.pub-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#E8F1F7}
+.pub-cos{display:flex;flex-direction:column;gap:6px;padding:14px 16px 16px}
+.pub-cos small{color:#7B8AA0;font-size:12px}
+.pub-txt{font-size:14.5px;line-height:1.5;font-weight:600}
+.pub-peu{margin-top:18px}
+@media (prefers-reduced-motion:reduce){.pub-card{transition:none}}
