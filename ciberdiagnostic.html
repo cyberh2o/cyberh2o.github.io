@@ -388,6 +388,11 @@
     #print-report{display:block!important}
   }
   #print-report{display:none}
+
+.tornaweb{display:inline-flex;align-items:center;gap:6px;color:#9fb8c9;font-size:13.5px;font-weight:600;
+  text-decoration:none;border:1px solid rgba(159,184,201,.35);border-radius:999px;padding:8px 14px;transition:.15s}
+.tornaweb:hover{color:#fff;border-color:#39d0e0;background:rgba(57,208,224,.08)}
+@media (max-width:720px){.tornaweb{order:-1;margin-left:auto}}
 </style>
 </head>
 <body>
@@ -395,7 +400,7 @@
 
   <!-- ===== TOP BAR ===== -->
   <div class="topbar">
-    <div class="brand">
+    <div class="brand" onclick="location.href='index.html'" style="cursor:pointer" title="Tornar al web">
       <div class="logochip"><img id="topLogo" alt="CiberH2O"></div>
       <div><div class="bt">Ciber<span>H2O</span></div><div class="bs">Ciberdiagnòstic</div></div>
     </div>
@@ -405,6 +410,7 @@
       <button class="step" data-go="eval" disabled><span class="n">3</span><span class="lbl">Avaluació</span></button>
       <button class="step" data-go="results" disabled><span class="n">4</span><span class="lbl">Resultats</span></button>
     </div>
+    <a class="tornaweb" href="index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Tornar al web</a>
   </div>
 
   <!-- ===== INTRO ===== -->
